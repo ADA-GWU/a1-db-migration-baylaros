@@ -1,7 +1,7 @@
 --Creating new table "STUDENTS"
 create table STUDENTS(st_id int, st_name varchar(15), st_last varchar(15));
 insert into STUDENTS(st_id, st_name, st_last)
-values ('1', 'Konul', 'Gurbanova'), ('2', 'Shahnur', 'Isgandarli');
+values ('1', 'Konul', 'Gurbanova'), ('2', 'Shahnur', 'Isgandarli'), ('3', 'Natavan', 'Mamamdova');
 
 --Adding new column "stundet_id"
 alter table students
