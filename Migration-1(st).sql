@@ -15,6 +15,6 @@ set STUDENT_ID=ST_ID;
 
 --Changing the types of the columns
 alter table students
-alter column st_name type varchar(30) from students;
+alter column st_name type varchar(30);
 alter table students
-alter column st_last type varchar(30) from students;
+alter column st_last type varchar(30);

@@ -12,7 +12,7 @@ update interests
 set interests = interest;
 
 --Creating new "interests_new table"
-CREATE TABLE interests_new AS select student_id, array_agg(interests) from interests group by(student_id) order by (student_id);
+CREATE TABLE interests_new AS select student_id, jsonb_agg(interests) from interests group by(student_id) order by (student_id);
 
 --renaming "interests" table to the old one - "interests_old"
 ALTER TABLE interests RENAME TO interests_old;
@@ -21,6 +21,7 @@ ALTER TABLE interests RENAME TO interests_old;
 ALTER TABLE interests_new RENAME TO interests;
 
 
+DROP TABLE interests_old;
 
 --
 --
@@ -32,14 +33,17 @@ ALTER TABLE interests_new RENAME TO interests;
 
 --creating new "INTERESTS" column
 alter table interests
-add interests varchar[];
+add interests jsonb;
 
 --Making "interests" column to be equal to "array_agg" column
 update interests
-set interests = array_agg;
+set interests = jsonb_agg;
 
 
 --At this point we have to access "Migration-2(int).sql" file in order to drop the old column - "array_agg"
 --
 --
 --
+
+alter table interests
+DROP column jsonb_agg;
