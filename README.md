@@ -104,7 +104,7 @@ First we open the file "Migration-1.sql(st)" (st for students) and the creation 
 ``` bash
 create table STUDENTS(st_id int, st_name varchar(15), st_last varchar(15));
 insert into STUDENTS(st_id, st_name, st_last)
-values ('1', 'Konul', 'Gurbanova'), ('2', 'Shahnur', 'Isgandarli');
+values ('1', 'Konul', 'Gurbanova'), ('2', 'Shahnur', 'Isgandarli'), ('3', 'Natavan', 'Mammadova');
 ```
 And then we are adding new column regarding this command: 
 ``` bash
@@ -119,9 +119,9 @@ set STUDENT_ID=ST_ID;
 The next obstacle is that setting the limits. So the "st_name" and "st_last columns" limits are 15 whereas we should make it 30: 
 ``` bash
 alter table students
-alter column st_name type varchar(30) from students;
+alter column st_name type varchar(30);
 alter table students
-alter column st_last type varchar(30) from students;
+alter column st_last type varchar(30);
 ```
 So in the code after the column name "type new_type" is the command for changing or setting new type. 
 
