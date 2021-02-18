@@ -3,7 +3,9 @@
 First and foremost in order to make migration and rollback first we should create tables. 
 In this assignment we have 2 tables: "STUDENTS" and "INTERESTS" and for each table we will have 2 migration.sql files (4 in total) and 2 rollback.sql files (4 in total) in order to have efficient and effective migration and rollback. 
 
-#INTERESTS TABLE (MIGRATION)
+
+
+# INTERESTS TABLE (MIGRATION)
 
 First we run the "migration-1(int).sql" file (int means interests) and we run first command in the file: 
 ``` bash
@@ -69,7 +71,9 @@ alter table interests
 DROP column array_agg;
 ```
 
-#INTERESTS TABLE (ROLLBACK)
+
+
+# INTERESTS TABLE (ROLLBACK)
 
 The rollback of the migration table is very easy. 
 First we should open the file name "Rollback-1(int).sql" (int for interest). As we created the table for the "interests" we are creating it again as well but now we name it as "interests_new"
@@ -92,7 +96,9 @@ DROP TABLE interests_old;
 ```
 
 
-#STUDENTS TABLE (MIGRATION)
+
+
+# STUDENTS TABLE (MIGRATION)
 
 First we open the file "Migration-1.sql(st)" (st for students) and the creation of the table is identical as "Interests" table but here we have 1 extra column: 
 ``` bash
@@ -125,7 +131,9 @@ alter table students
 drop column st_id;
 ```
 
-#STUDENTS TABLE (ROLLBACK)
+
+
+# STUDENTS TABLE (ROLLBACK)
 
 As we created new column and dropped the old one, now we a shpuld reverse it and create old one and drop the new one whereas you should access "Rollback-1(st) (st for students)". The commands are the same:
 ``` bash
