@@ -76,11 +76,14 @@ DROP column array_agg;
 # INTERESTS TABLE (ROLLBACK)
 
 The rollback of the migration table is very easy. 
-First we should open the file name "Rollback-1(int).sql" (int for interest). As we created the table for the "interests" we are creating it again as well but now we name it as "interests_new"
+First we should open the file name "Rollback-1(int).sql" (int for interest). 
+As we created the table for the "interests" we are creating it again as well but now we name it as "interests_new"
 ``` bash
 create table interests_new(STUDENT_ID int, INTEREST varchar(15));
-insert into interests_new(STUDENT_ID, INTEREST)
-values ('1', 'Tennis'), ('1', 'Literature'), ('1', 'Math'), ('2', 'Tennis'), ('3', 'Math'), ('3', 'Music'), ('2', 'Football'), ('1', 'Chemistry'), ('3', 'Chess');
+```
+And then we are using the unnest(array) function in order to open the arrays and set them as ascending order from 1 to 3
+``` bash
+insert into interests_new(student_id, interest) select student_id, unnest(interests) from interests;
 ```
 And then we rename the "interests" table to "interests_old" so that we will be able to use the name "interests"
 ``` bash
@@ -90,6 +93,7 @@ And then renamin the new table to "interests"
 ``` bash
 ALTER TABLE interests_new RENAME TO interests;
 ```
+
 The last step for the interests is dropping the old table in which we should open the file "Rollback-2(int).sql" (int for interest): 
 ``` bash
 DROP TABLE interests_old;

@@ -1,7 +1,8 @@
---Creating Table "INTERESTS"
+--First we are creating new table with "student_id" and "interest" column
 create table interests_new(STUDENT_ID int, INTEREST varchar(15));
-insert into interests_new(STUDENT_ID, INTEREST)
-values ('1', 'Tennis'), ('1', 'Literature'), ('1', 'Math'), ('2', 'Tennis'), ('3', 'Math'), ('3', 'Music'), ('2', 'Football'), ('1', 'Chemistry'), ('3', 'Chess');
+
+--We are using unnest function in order to open the array and order them as ascending order
+insert into interests_new(student_id, interest) select student_id, unnest(interests) from interests;
 
 --renaming interests table to the old one
 ALTER TABLE interests RENAME TO interests_old;
