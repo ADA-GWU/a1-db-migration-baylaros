@@ -1,12 +1,14 @@
---creating new column with old name
+--Creating new column with old name - "st_id"
 alter table students
 add ST_ID int;
 
---making it to be equal to the old column
+--Making old column to be equal to the new column - "student_id"
 UPDATE students
 set ST_ID=STUDENT_ID;
 
---changin types of the columns
+--At this point please access "Rollback-2(st).sql" in order to drop the "student_id" column. 
+
+--Changing types of the columns
 alter table students
 alter column st_name type varchar(15);
 alter table students

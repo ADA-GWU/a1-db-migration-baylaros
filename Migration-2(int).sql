@@ -1,6 +1,6 @@
---dropping the old table that we don't need
+--Dropping the old table "interests_old"
 DROP TABLE interests_old;
 
---dropping the old column array_agg
+--Dropping the old column "array_agg"
 alter table interests
 DROP column array_agg;

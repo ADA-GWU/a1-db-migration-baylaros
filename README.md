@@ -7,7 +7,7 @@ In this assignment we have 2 tables: "STUDENTS" and "INTERESTS" and for each tab
 
 # INTERESTS TABLE (MIGRATION)
 
-First we run the "migration-1(int).sql" file (int means interests) and we run first command in the file: 
+First we run the "Migration-1(int).sql" file (int means interests) and we run first command in the file: 
 ``` bash
 create table INTERESTS(STUDENT_ID int, INTEREST varchar(15)); 
 ```
@@ -32,7 +32,7 @@ Then:
 update interests
 set interests = interest;
 ```
-So update is the updating of the table because we modified it and added column. And then in the set command we are copying data from "interest" column to "interests" column
+Update is the updating of the table because we modified it and added column. And then in the set command we are copying data from "interest" column to "interests" column
 
 
 In order to make an array column first we should create new table with new array_agg column whereas we take data from old table and making it as an array according to the students_id so in our case there will be 3 rows:
@@ -49,7 +49,7 @@ And then renaming the new table as "INTERESTS" table:
 ``` bash
 ALTER TABLE interests_new RENAME TO interests;
 ```
-After this command, we should open "migration-2(int).sql" file (int for interest) in order to drop the old table. We run: 
+After this command, we should open "Migration-2(int).sql" file (int for interest) in order to drop the old table. We run: 
 ``` bash
 DROP TABLE interests_old;
 ```
@@ -65,7 +65,7 @@ And then we run:
 update interests
 set interests = array_agg;
 ```
-And then we open the migration-2(int).sql file (int for interest) in order to drop the old "array_agg" column, we run: 
+And then we open the "Migration-2(int).sql" file (int for interest) in order to drop the old "array_agg" column, we run: 
 ``` bash
 alter table interests
 DROP column array_agg;
@@ -135,7 +135,7 @@ drop column st_id;
 
 # STUDENTS TABLE (ROLLBACK)
 
-As we created new column and dropped the old one, now we a shpuld reverse it and create old one and drop the new one whereas you should access "Rollback-1(st) (st for students)". The commands are the same:
+As we created new column and dropped the old one, now we a should reverse it and create old one and drop the new one whereas you should access "Rollback-1(st) (st for students)". The commands are the same:
 ``` bash
 alter table students
 add ST_ID int;

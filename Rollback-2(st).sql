@@ -1,3 +1,3 @@
---dropping old column in students table
+--Dropping the old column "student_id"
 alter table students
 drop column student_id;
